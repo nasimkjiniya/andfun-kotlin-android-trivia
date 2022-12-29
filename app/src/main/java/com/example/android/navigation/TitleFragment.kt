@@ -1,6 +1,7 @@
 package com.example.android.navigation
 
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Binding
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -36,7 +37,12 @@ class TitleFragment : Fragment() {
 //        }
 
 //      jetpack short version of navigation
-        binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_titleFragment2_to_gameFragment))
+       // binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_titleFragment2_to_gameFragment))
+
+        binding.playButton.setOnClickListener()
+        {
+            it.findNavController().navigate(TitleFragmentDirections.actionTitleFragment2ToGameFragment())
+        }
 
         return binding.root
     }
